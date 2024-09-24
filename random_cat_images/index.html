@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random cat images</title>
+</head>
+<body>
+
+    <img id="img">
+
+    <script>
+        let my_img = document.getElementById("img")
+        fetch("https://api.thecatapi.com/v1/images/search")
+        .then((response) => response.json())
+        .then((json) => json[0].url)
+        .then((json => {
+            my_img.src = json;
+        }))
+    </script>
+</body>
+</html>
