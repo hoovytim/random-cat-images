@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head >
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>random cat images</title>
 </head>
-<body>
+<body onload="randomimg()">
 
-    <img id="img">
-
+    <img style="max-width: 800px; max-height: 600px;" id="img">
+    <button onclick="randomimg()">
+        new random image
+    </button>
     <script>
-        let my_img = document.getElementById("img")
-        fetch("https://api.thecatapi.com/v1/images/search")
-        .then((response) => response.json())
-        .then((json) => json[0].url)
-        .then((json => {
-            my_img.src = json;
+        function randomimg(params) {
+            let my_img = document.getElementById("img")
+            fetch("https://api.thecatapi.com/v1/images/search")
+            .then((response) => response.json())
+            .then((json) => json[0].url)
+            .then((json => {
+                my_img.src = json;
         }))
+        }
     </script>
 </body>
 </html>
